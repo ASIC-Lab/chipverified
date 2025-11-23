@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Academic Portfolio</title>
+    <title>SystemVerilog Built-in Types</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,44 +13,102 @@
 
     <header>
         <div class="container">
-            <h1>Dr. Jane Doe</h1>
-            <p class="subtitle">Research Scientist & Lecturer</p>
+            <h1>SystemVerilog Data Types</h1>
+            <p class="subtitle">Integers, Reals, and Simulation Behavior</p>
         </div>
     </header>
 
     <main class="container grid-wrapper">
         
         <article class="card glass-card">
-            <h2>Research Interests</h2>
+            <h2>The Hierarchy</h2>
+            <p>Data types are categorized by their nature (Integral, Real, or Misc) and their simulation behavior (2-State vs. 4-State).</p>
+            <div class="tag-container">
+                <span class="tag">Integral</span>
+                <span class="tag">Real</span>
+                <span class="tag">Misc</span>
+            </div>
+        </article>
+
+        <article class="card glass-card">
+            <h2>2-State Types (Performance)</h2>
+            <p>Simulate faster and take less memory (stores 0, 1). Ideal for testbenches and counters.</p>
             <ul>
-                <li>Data Science</li>
-                <li>Machine Learning</li>
-                <li>Academic Writing</li>
+                <li><strong>bit:</strong> 1-bit unsigned (User defined size)</li>
+                <li><strong>byte:</strong> 8-bit signed</li>
+                <li><strong>shortint:</strong> 16-bit signed</li>
+                <li><strong>int:</strong> 32-bit signed</li>
+                <li><strong>longint:</strong> 64-bit signed</li>
             </ul>
         </article>
 
         <article class="card glass-card">
-            <h2>Recent Publications</h2>
-            <p>A study on the effects of card-based UI in academic portfolios.</p>
-            <a href="#" class="link-text">Read more &rarr;</a>
+            <h2>4-State Types (Modeling)</h2>
+            <p>Accurately models hardware states (0, 1, X, Z). Used for RTL design and verifying resets.</p>
+            <ul>
+                <li><strong>logic:</strong> User-defined size (unsigned). Replaces 'reg'.</li>
+                <li><strong>integer:</strong> 32-bit signed (Legacy).</li>
+                <li><strong>time:</strong> 64-bit unsigned (Timestamps).</li>
+            </ul>
         </article>
 
         <article class="card glass-card">
-            <h2>Contact</h2>
-            <p>email@university.edu</p>
+            <h2>Real & Misc Types</h2>
+            <ul>
+                <li><strong>real:</strong> Double precision float (Not synthesizable).</li>
+                <li><strong>shortreal:</strong> Single precision float.</li>
+                <li><strong>string:</strong> Dynamic array of characters.</li>
+                <li><strong>void:</strong> Represents non-existent data.</li>
+            </ul>
+        </article>
+
+        <article class="card glass-card full-width">
+            <h2>Summary of Built-in Types</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Width</th>
+                        <th>States</th>
+                        <th>Signed?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>bit</td>
+                        <td>User Defined</td>
+                        <td>2-State</td>
+                        <td>Unsigned</td>
+                    </tr>
+                    <tr>
+                        <td>logic / reg</td>
+                        <td>User Defined</td>
+                        <td>4-State</td>
+                        <td>Unsigned</td>
+                    </tr>
+                    <tr>
+                        <td>int</td>
+                        <td>32-bit</td>
+                        <td>2-State</td>
+                        <td>Signed</td>
+                    </tr>
+                    <tr>
+                        <td>byte</td>
+                        <td>8-bit</td>
+                        <td>2-State</td>
+                        <td>Signed</td>
+                    </tr>
+                    <tr>
+                        <td>integer</td>
+                        <td>32-bit</td>
+                        <td>4-State</td>
+                        <td>Signed</td>
+                    </tr>
+                </tbody>
+            </table>
         </article>
 
     </main>
-
-    <section class="light-section">
-        <div class="container">
-            <h2 style="color: var(--primary-text);">Projects</h2>
-            <div class="card light-card">
-                <h3>Project Alpha</h3>
-                <p>Analysis of dataset X using Python.</p>
-            </div>
-        </div>
-    </section>
 
 </body>
 </html>
